@@ -1,10 +1,12 @@
 (define (double x) (+ x x))
+(define (halve x) (/ x 2)) 
+
 
 (define (iter-fast-product a b) 
     (define (iter n a b)
         (cond
             ((= 0 n) b)
-            ((even? n) (iter (/ n 2) (double a) b))
+            ((even? n) (iter (halve n) (double a) b))
             (else (iter (- n 1) a (+ a b)))
         )
     )
